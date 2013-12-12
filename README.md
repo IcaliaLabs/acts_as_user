@@ -81,7 +81,7 @@ When using devise, ActsAsUser will also ignore the ```encrypted_password``` attr
 
 ###Psst! Here is a live example in rails
 
-[Rails acts as user example](https://github.com/IcaliaLabs)
+[Rails acts as user example](https://github.com/IcaliaLabs/acts_as_user_example)
 
 ### Devs
 
