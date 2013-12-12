@@ -12,7 +12,7 @@ module ActsAsUser
   end
 
   def self.devise?
-    defined?(Devise) 
+    defined?(Devise).present?
   end
 end
 
