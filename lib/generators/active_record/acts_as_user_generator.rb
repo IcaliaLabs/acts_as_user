@@ -11,7 +11,7 @@ module ActiveRecord
 
       def copy_acts_as_user_migration
         if (behavior == :invoke && model_exists?) || (behavior == :revoke && migration_exists?(table_name))
-          migration_template "existing_migration.rb", "db/migrate/add_acts_as_user_#{table_name}"
+          migration_template "existing_migration.rb", "db/migrate/add_acts_as_user_to_#{table_name}"
         else
           migration_template "migration.rb", "db/migrate/creates_acts_as_user_to_#{table_name}"
         end
