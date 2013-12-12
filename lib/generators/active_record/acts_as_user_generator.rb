@@ -17,6 +17,20 @@ module ActiveRecord
         end
       end
 
+     def inject_is_user_content_to_user
+       content = %q{ is_user }
+
+      class_path = if namespaced?
+        class_name.to_s.split("::")
+      else
+        [class_name]
+      end
+
+      indent_depth = class_path.size - 1
+      content = content.split("\n").map { |line| "  " * indent_depth + line } .join("\n") << "\n"
+      inject_into_class(model_path, class_path.last, content) if model_exists?
+     end
+
       def generate_model
         invoke "active_record:model", [name], :migration => false unless model_exists? && behavior == :invoke
       end
