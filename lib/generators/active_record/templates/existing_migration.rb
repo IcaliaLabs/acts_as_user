@@ -1,4 +1,4 @@
-class AddActsAsUser<%= table_name.camelize %> < ActiveRecord::Migration
+class AddActsAsUserTo<%= table_name.camelize %> < ActiveRecord::Migration
   def self.up
     change_table(:<%= table_name %>) do |t|
 
