@@ -1,4 +1,5 @@
 require "acts_as_user/version"
+require 'orm_adapter'
 
 module ActsAsUser
   @@default_ignored_attributes = ["created_at", "updated_at", "id", "userable_type", "userable_id"]

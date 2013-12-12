@@ -4,6 +4,6 @@ ActsAsUser.setup do |config|
 
   # ==> ORM Configuration
   # Load and configure the ORM. Supports :active_record
-  require 'orm_adapter/adapters/active_record'
+  require 'acts_as_user/orm/active_record'
 
 end
