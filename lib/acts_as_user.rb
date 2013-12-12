@@ -16,4 +16,5 @@ module ActsAsUser
 end
 
 require 'acts_as_user/user_delegate'
+require 'acts_as_user/is_user'
 require 'acts_as_user/railtie'

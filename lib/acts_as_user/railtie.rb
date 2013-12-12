@@ -5,6 +5,9 @@ module ActsAsUser
         def self.acts_as_user
           include ActsAsUser::UserDelegate    
         end
+        def self.is_user
+          include ActsAsUser::IsUser
+        end
       end
     end
   end
