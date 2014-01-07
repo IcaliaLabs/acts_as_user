@@ -5,7 +5,6 @@ script: "bundle exec rake spec"
 rvm: 
   - 1.9.3
   - 2.0.0
-  - 2.0.1
 
 gemfile:
   gemfiles/active_record_40.gemfile
