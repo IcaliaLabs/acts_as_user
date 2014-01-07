@@ -1,4 +1,5 @@
 #Acts as user
+[![Build Status](https://travis-ci.org/IcaliaLabs/acts_as_user.png?branch=master)](https://travis-ci.org/IcaliaLabs/acts_as_user)
 
 Acts as user handles multiple user roles on a rails app. It uses polymorphic associations to relate other models and behave like a user.
 
