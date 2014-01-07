@@ -14,6 +14,14 @@ module ActsAsUser
   def self.devise?
     defined?(Devise).present?
   end
+
+  def self.add_devise_attributes_to_ignore
+    if self.devise?
+      devise_ignore_attrs = ['password', 'password_confirmation', 'encrypted_password']
+      self.ignored_attributes << devise_ignore_attrs
+      self.ignored_attributes.flatten!
+    end
+  end
 end
 
 require 'acts_as_user/user_delegate'

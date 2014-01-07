@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'railties', '>= 4.0.0'
+gem 'activerecord', '>= 4.0.0', :require => 'active_record'
+gem 'rspec-rails', '>= 2.0'
+
+platforms :ruby do
+  gem 'sqlite3'
+end
+
+gemspec :path => '../'

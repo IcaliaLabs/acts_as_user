@@ -33,12 +33,6 @@ module ActsAsUser
       def define_user_accessors
         all_attributes = User.columns.map(&:name)
 
-        if ActsAsUser.devise?
-          all_attributes << "password"
-          all_attributes << "password_confirmation"
-          ActsAsUser.ignored_attributes << "encrypted_password"
-        end
-
         attributes_to_delegate = all_attributes - ActsAsUser.ignored_attributes
 
         attributes_to_delegate.each do |attrib|
