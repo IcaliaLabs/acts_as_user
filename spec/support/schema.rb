@@ -10,4 +10,7 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string :name
     t.string :city
   end
+
+  create_table :admins do |t|
+  end
 end
