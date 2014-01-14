@@ -95,17 +95,17 @@ end
 Now we will instantiate a Customer object:
 
 ```console
-	customer = Customer.find(1)
-	current_user = customer.user
+customer = Customer.find(1)
+current_user = customer.user
 ```
 
 You now should be able to detect in this case if the current_user is wheter an admin or a customer by simply calling:
 
 ```console
-	current_user.customer?
-	=> true
-	current_user.admin?
-	=> false
+current_user.customer?
+ => true
+current_user.admin?
+ => false
 ```
 
 Enjoy!
