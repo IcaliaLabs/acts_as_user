@@ -72,6 +72,44 @@ Acts as a user plays well with Devise as it ignores and adds the corresponding a
 
 When using devise, ActsAsUser will also ignore the ```encrypted_password``` attribute from the user. No further configuration needs to be done.
 
+##Getting to know the user
+
+ActsAsUser gem now adds some handy instance user methods that returns true or false wheter the current user is a specific type or not, for example:
+
+A simple configuration may look something similar to:
+
+```ruby
+class User < ActiveRecord::Base
+ is_user
+end
+
+class Customer < ActiveRecord::Base
+ acts_as_user
+end
+
+class Admin < ActiveRecord::Base
+ acts_as_user
+end
+```
+
+Now we will instantiate a Customer object:
+
+```console
+	customer = Customer.find(1)
+	current_user = customer.user
+```
+
+You now should be able to detect in this case if the current_user is wheter an admin or a customer by simply calling:
+
+```console
+	current_user.customer?
+	=> true
+	current_user.admin?
+	=> false
+```
+
+Enjoy!
+
 ## Contributing
 
 1. Fork it
@@ -92,7 +130,6 @@ When using devise, ActsAsUser will also ignore the ```encrypted_password``` attr
 
 ### Future
 
-* Add tests
 * Support for Mongoid
 * Add wiki
 
