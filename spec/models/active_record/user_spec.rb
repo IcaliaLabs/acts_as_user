@@ -26,5 +26,14 @@ describe User do
         @current_user.should_not be_customer 
       end
     end
+    context 'when is an admin' do
+      before do
+        @admin_user = Admin.create email: 'test@icalialabs.com'
+        @current_user = @admin_user.user
+      end
+      it 'returns true' do
+        @current_user.should be_admin
+      end
+    end
   end
 end
