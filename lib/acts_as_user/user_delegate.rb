@@ -6,12 +6,6 @@ module ActsAsUser
       base.alias_method_chain :user, :autobuild
       base.extend ClassMethods
       base.define_user_accessors
-      self.load_models_acting_as_users_hook
-    end
-
-    def self.load_models_acting_as_users_hook
-      #hook to load the models acting as users 
-      ActiveSupport.run_load_hooks :user_delegate, ActsAsUser::UserDelegate
     end
 
     def user_with_autobuild
@@ -40,10 +34,6 @@ module ActsAsUser
       def define_user_accessors
         #We check the user columns to declare them as attributes to delegate
         all_attributes = User.columns.map(&:name)
-
-        #We append the model that is acting as user
-        #to hook it up later as a user method
-        ActsAsUser.append_model_acting_like_user self.name
 
         attributes_to_delegate = all_attributes - ActsAsUser.ignored_attributes
 
