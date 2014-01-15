@@ -18,6 +18,7 @@ require 'fake_gem' if defined? ActiveRecord
 
 ActiveRecord::Base.establish_connection adapter: "sqlite3", database: ":memory:"
 #Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
+load File.dirname(__FILE__) + '/support/acts_as_user_initializer.rb'
 load File.dirname(__FILE__) + '/support/schema.rb'
 load File.dirname(__FILE__) + '/support/models.rb'
 

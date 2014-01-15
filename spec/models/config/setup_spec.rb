@@ -5,6 +5,7 @@ describe ActsAsUser do
   subject { acts_as_user }
   it { should respond_to :ignored_attributes }
   it { should respond_to :setup }
+  it { should respond_to :models_acting_as_users }
 
   describe 'ignored attributes' do
     context 'when devise is present' do
