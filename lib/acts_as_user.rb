@@ -31,6 +31,8 @@ module ActsAsUser
   mattr_accessor :ignored_attributes
   @@ignored_attributes = @@ignored_attributes.to_a + @@default_ignored_attributes
 
+  mattr_accessor :models_acting_as_users
+  @@models_acting_as_users = []
 
   def self.setup
     yield self    
@@ -49,13 +51,6 @@ module ActsAsUser
       self.ignored_attributes.flatten!
     end
   end
-
-  private
-
-    def self.append_model_acting_like_user(class_name = "")
-      ActsAsUser.models_acting_like_users << class_name 
-    end
-  
 end
 
 require 'acts_as_user/railtie'
