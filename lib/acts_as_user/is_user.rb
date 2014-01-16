@@ -10,9 +10,10 @@ module ActsAsUser
 
     module ClassMethods
       def define_models_acting_as_users
-        ActsAsUser.models_acting_as_users.each do |model_class_name|
-          define_method("#{model_class_name.to_s.downcase}?") do
-            self.userable_type.downcase == model_class_name.to_s.downcase
+        models_acting_as_users  = ActsAsUser.models_acting_as_users.map(&:to_s).map(&:downcase)
+        models_acting_as_users.each do |model_class_name|
+          define_method("#{model_class_name}?") do
+            self.userable_type.to_s.downcase == model_class_name
           end
         end
       end
