@@ -7,6 +7,7 @@ describe User do
   it { should respond_to :customer? }
   it { should respond_to :admin? }
 
+
   describe '#customer?' do
     context 'when is a customer' do
       before do
@@ -14,7 +15,7 @@ describe User do
         @current_user = @customer_user.user
       end
       it 'returns true' do
-        @current_user.should be_customer 
+        expect(@current_user).to be_customer
       end
     end
     context 'when is not customer' do
@@ -23,7 +24,7 @@ describe User do
         @current_user = @fake_customer_user.user
       end
       it 'returns false' do
-        @current_user.should_not be_customer 
+        expect(@current_user).not_to be_customer 
       end
     end
     context 'when is an admin' do
@@ -32,7 +33,7 @@ describe User do
         @current_user = @admin_user.user
       end
       it 'returns true' do
-        @current_user.should be_admin
+        expect(@current_user).to be_admin
       end
     end
   end
