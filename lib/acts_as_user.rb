@@ -1,24 +1,13 @@
 require "acts_as_user/version"
 require 'orm_adapter'
+require 'active_support/dependencies'
 
 module ActsAsUser
   extend ActiveSupport::Autoload
 
   #Eager loads the modules
-  eager_autoload do
-    autoload :UserDelegate
-    autoload :IsUser
-  end
-
-  # ActiveSupport::Autoload automatically defines
-  # an eager_load! method. In this case, we are
-  # extending the method to also eager load the
-  # ActsAsUser modules.
-  def self.eager_load!
-    super 
-    ActsAsUser::UserDelegate.eager_load!
-    ActsAsUser::IsUser.eager_load!
-  end
+  autoload :UserDelegate, 'acts_as_user/user_delegate'
+  autoload :IsUser,       'acts_as_user/is_user'
 
   #We ignore some attribues that might cause a collision between models
   @@default_ignored_attributes = ["created_at", "updated_at", "id", "userable_type", "userable_id"]
