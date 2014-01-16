@@ -31,4 +31,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "orm_adapter", "~> 0.1"
   spec.add_dependency "activerecord", ">= 3.0"
+  spec.add_dependency "activesupport"
 end
