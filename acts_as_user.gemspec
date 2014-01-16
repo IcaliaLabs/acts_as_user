@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = ActsAsUser::VERSION
   spec.authors       = ["Abraham Kuri", "Patricio Beltrán"]
   spec.email         = ["kurenn@icalialabs.com", "pbeltran@icalialabs.com"]
-  spec.description   = %q{Handles multiple user roles on a rails app}
+  spec.description   = %q{A ruby gem to handle multiple user roles on a Rails app, it also has Devise support}
   spec.summary       = %q{Handles multiple user roles on a rails app}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/IcaliaLabs/acts_as_user"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

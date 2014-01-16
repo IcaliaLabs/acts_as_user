@@ -1,6 +1,8 @@
 #Acts as user
 [![Build Status](https://travis-ci.org/IcaliaLabs/acts_as_user.png?branch=master)](https://travis-ci.org/IcaliaLabs/acts_as_user)
 [![Code Climate](https://codeclimate.com/github/IcaliaLabs/acts_as_user.png)](https://codeclimate.com/github/IcaliaLabs/acts_as_user)
+[![Dependency Status](https://gemnasium.com/IcaliaLabs/acts_as_user.png)](https://gemnasium.com/IcaliaLabs/acts_as_user)
+[![Gem Version](https://badge.fury.io/rb/acts_as_user.png)](http://badge.fury.io/rb/acts_as_user)
 
 Acts as user handles multiple user roles on a rails app. It uses polymorphic associations to relate other models and behave like a user.
 
