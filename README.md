@@ -7,7 +7,7 @@ Acts as user handles multiple user roles on a rails app. It uses polymorphic ass
 
 ## Getting started
 
-ActsAsUser 1.0.0 works with rails 3 onwards. You can add it to your Gemfile with:
+ActsAsUser 1.2.1 works with rails 3 onwards. You can add it to your Gemfile with:
 
 ```ruby
 gem 'acts_as_user'
@@ -89,6 +89,14 @@ end
 
 class Admin < ActiveRecord::Base
  acts_as_user
+end
+```
+
+Just a little configuration is needed, you can do it on the ```acts_as_user.rb``` initializer like so:
+
+```ruby
+ActsAsUser.setup do |config|
+	config.models_acting_as_users = [:admin, :customer]
 end
 ```
 
