@@ -40,4 +40,15 @@ describe Customer do
       @customer.user.email.should eql @customer.email
     end
   end
+
+  describe 'deep_inspect' do
+    before do
+      @customer = Customer.new(email: 'test@test.com')
+      @customer.save
+    end
+    it 'inspects both the user and the userable' do
+      @customer.deep_inspect.should include @customer.inspect
+      @customer.deep_inspect.should include @customer.user.inspect
+    end
+  end
 end

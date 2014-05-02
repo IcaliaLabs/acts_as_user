@@ -18,6 +18,9 @@ module ActsAsUser
       super
     end
 
+    def deep_inspect
+      "#{self.inspect} -- #{self.user.inspect}"
+    end
 
     protected
 
