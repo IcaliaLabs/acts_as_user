@@ -1,15 +1,26 @@
 module ActsAsUser
   module UserDelegate
     def self.included(base)
-      base.has_one :user, :as => :userable, :dependent => :destroy, :autosave => true
-      base.validate :user_must_be_valid
-      base.alias_method_chain :user, :autobuild
-      base.extend ClassMethods
-      base.define_user_accessors
+      options = base.class_variable_get('@@acts_as_user_options')
+      if !!options[:has_many]
+        base.has_many :users, :as => :userable, :dependent => :destroy, :autosave => true
+        base.alias_method_chain :users, :autobuild
+        base.accepts_nested_attributes_for :users, :allow_destroy => true
+      else
+        base.has_one :user, :as => :userable, :dependent => :destroy, :autosave => true
+        base.alias_method_chain :user, :autobuild
+        base.validate :user_must_be_valid
+        base.extend ClassMethods
+        base.define_user_accessors
+      end
     end
 
     def user_with_autobuild
       user_without_autobuild || build_user
+    end
+
+    def users_with_autobuild
+      users_without_autobuild.present? ? users_without_autobuild : (users_without_autobuild << User.new)
     end
 
     def method_missing(meth, *args, &blk)

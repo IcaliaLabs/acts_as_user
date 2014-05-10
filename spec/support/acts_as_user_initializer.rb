@@ -2,7 +2,7 @@
 # rails generators
 ActsAsUser.setup do |config|
 
-  config.models_acting_as_users = [:admin, :customer]
+  config.models_acting_as_users = [:admin, :customer, :partner]
 
   # ==> ORM Configuration
   # Load and configure the ORM. Supports :active_record
