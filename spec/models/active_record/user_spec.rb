@@ -6,6 +6,7 @@ describe User do
   it { should respond_to :userable_id }
   it { should respond_to :customer? }
   it { should respond_to :admin? }
+  it { should respond_to :partner? }
 
 
   describe '#customer?' do
@@ -24,7 +25,7 @@ describe User do
         @current_user = @fake_customer_user.user
       end
       it 'returns false' do
-        expect(@current_user).not_to be_customer 
+        expect(@current_user).not_to be_customer
       end
     end
     context 'when is an admin' do
@@ -34,6 +35,13 @@ describe User do
       end
       it 'returns true' do
         expect(@current_user).to be_admin
+      end
+    end
+    context 'when is a partner' do
+      let(:partner) { Partner.create name: 'Fake Name', users: [ User.create(email: 'test@icalialabs.com') ] }
+      let(:user)    { partner.users.first }
+      it 'returns true' do
+        expect(user).to be_partner
       end
     end
   end

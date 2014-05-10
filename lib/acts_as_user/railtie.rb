@@ -7,8 +7,10 @@ module ActsAsUser
         ActsAsUser.add_devise_attributes_to_ignore
 
         class ActiveRecord::Base
-          def self.acts_as_user
-            include ActsAsUser::UserDelegate    
+          cattr_accessor :acts_as_user_options
+          def self.acts_as_user options={}
+            self.acts_as_user_options = options
+            include ActsAsUser::UserDelegate
           end
           def self.is_user
             include ActsAsUser::IsUser

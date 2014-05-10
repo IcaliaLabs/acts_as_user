@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  is_user 
+  is_user
   validates :email, presence: true
 end
 
@@ -9,4 +9,8 @@ end
 
 class Admin < ActiveRecord::Base
   acts_as_user
+end
+
+class Partner < ActiveRecord::Base
+  acts_as_user :has_many => true
 end
