@@ -1,7 +1,7 @@
 module ActsAsUser
   module UserDelegate
     def self.included(base)
-      base.has_one :user, :as => :userable, :dependent => :destroy, :autosave => true
+      base.has_one :user, :as => :userable, :dependent => :destroy, :autosave => true, inverse_of: :userable
       base.validate :user_must_be_valid
       base.alias_method_chain :user, :autobuild
       base.extend ClassMethods

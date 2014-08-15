@@ -2,7 +2,7 @@ module ActsAsUser
   module IsUser
 
     def self.included(base)
-      base.belongs_to :userable, polymorphic: true
+      base.belongs_to :userable, polymorphic: true, inverse_of: :user
       base.extend ClassMethods
       #loads models acting as users when the hook is loaded
       base.define_models_acting_as_users
