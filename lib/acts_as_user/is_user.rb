@@ -13,7 +13,7 @@ module ActsAsUser
         models_acting_as_users  = ActsAsUser.models_acting_as_users.map(&:to_s).map(&:downcase)
         models_acting_as_users.each do |model_class_name|
           define_method("#{model_class_name}?") do
-            self.userable_type.to_s.downcase == model_class_name
+            self.userable_type.to_s.underscore == model_class_name
           end
         end
       end
