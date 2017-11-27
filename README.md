@@ -1,4 +1,4 @@
-#Acts as user
+# Acts as user
 [![Build Status](https://travis-ci.org/IcaliaLabs/acts_as_user.png?branch=master)](https://travis-ci.org/IcaliaLabs/acts_as_user)
 [![Code Climate](https://codeclimate.com/github/IcaliaLabs/acts_as_user.png)](https://codeclimate.com/github/IcaliaLabs/acts_as_user)
 [![Dependency Status](https://gemnasium.com/IcaliaLabs/acts_as_user.png)](https://gemnasium.com/IcaliaLabs/acts_as_user)
@@ -31,7 +31,7 @@ rails g acts_as_user User <attributes>
 
 Next you'll probably want to run the migrations "rake db:migrate", as the generator will create a migration file (open it modify if you need to).
 
-##Configuration
+## Configuration
 
 For the models you want to inherit to you just have to add this line of code into them:
 
@@ -49,7 +49,7 @@ class User
 end
 ```
 
-###Ignore attributes to delegate from the user
+### Ignore attributes to delegate from the user
 
 If you want to ignore some attributes from your user model to the childs, you can do it on the ```acts_as_user.rb``` initializer like so:
 
@@ -66,7 +66,7 @@ By default it ignores the following attributes:
 ```
 
 
-##Devise support
+## Devise support
 
 Yes we do!
 
@@ -74,7 +74,7 @@ Acts as a user plays well with Devise as it ignores and adds the corresponding a
 
 When using devise, ActsAsUser will also ignore the ```encrypted_password``` attribute from the user. No further configuration needs to be done.
 
-##Getting to know the user
+## Getting to know the user
 
 ActsAsUser gem now adds some handy instance user methods that returns true or false wheter the current user is a specific type or not, for example:
 
@@ -129,7 +129,7 @@ Enjoy!
 5. Create new Pull Request
 
 
-###Psst! Here is a live example in rails
+### Psst! Here is a live example in rails
 
 [Rails acts as user example](https://github.com/IcaliaLabs/acts_as_user_example)
 
