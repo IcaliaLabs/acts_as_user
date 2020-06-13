@@ -1,7 +1,5 @@
-require 'pry'
 module ActsAsUser
   module UserDelegate
-    require 'auto_build'
 
     def self.included(base)
       options = base.class_variable_get('@@acts_as_user_options')
