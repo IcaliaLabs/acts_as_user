@@ -23,3 +23,5 @@ load File.dirname(__FILE__) + '/support/schema.rb'
 load File.dirname(__FILE__) + '/support/models.rb'
 
 I18n.enforce_available_locales = false
+
+include Shoulda::Matchers::ActiveRecord
