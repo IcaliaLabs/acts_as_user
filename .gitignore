@@ -17,3 +17,7 @@ test/version_tmp
 tmp
 .DS_Store
 *.lock
+.idea
+.rakeTasks
+.byebug_history
+.ruby-version

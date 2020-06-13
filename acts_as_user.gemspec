@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "shoulda-matchers"
   spec.add_development_dependency "activesupport"
   spec.add_development_dependency 'database_cleaner'
-  spec.add_development_dependency 'debugger'
+  spec.add_development_dependency 'byebug'
 
   spec.add_dependency "orm_adapter"
   spec.add_runtime_dependency "activerecord"

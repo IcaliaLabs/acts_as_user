@@ -1,26 +1,19 @@
 module ActsAsUser
   module UserDelegate
+
     def self.included(base)
       options = base.class_variable_get('@@acts_as_user_options')
       if !!options[:has_many]
         base.has_many :users, :as => :userable, :dependent => :destroy, :autosave => true
-        base.alias_method_chain :users, :autobuild
+        base.after_initialize :auto_build_users
         base.accepts_nested_attributes_for :users, :allow_destroy => true
       else
         base.has_one :user, :as => :userable, :dependent => :destroy, :autosave => true
-        base.alias_method_chain :user, :autobuild
         base.validate :user_must_be_valid
         base.extend ClassMethods
         base.define_user_accessors
+        base.alias_method :user, :auto_build_user
       end
-    end
-
-    def user_with_autobuild
-      user_without_autobuild || build_user
-    end
-
-    def users_with_autobuild
-      users_without_autobuild.present? ? users_without_autobuild : (users_without_autobuild << User.new)
     end
 
     def method_missing(meth, *args, &blk)
@@ -31,6 +24,14 @@ module ActsAsUser
 
     def deep_inspect
       "#{self.inspect} -- #{self.user.inspect}"
+    end
+
+    def auto_build_user
+      build_user
+    end
+
+    def auto_build_users
+      users.present? ? users : (users << User.new)
     end
 
     protected
@@ -44,7 +45,6 @@ module ActsAsUser
     end
 
     module ClassMethods
-
       def define_user_accessors
         #We check the user columns to declare them as attributes to delegate
         all_attributes = User.columns.map(&:name)
@@ -65,7 +65,7 @@ module ActsAsUser
           def #{attrib}?
             self.user.#{attrib}?
           end
-            RUBY
+          RUBY
         end
       end
     end
