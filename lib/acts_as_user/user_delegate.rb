@@ -8,7 +8,7 @@ module ActsAsUser
         base.accepts_nested_attributes_for :users, :allow_destroy => true
       else
         base.has_one :user, :as => :userable, :dependent => :destroy, :autosave => true
-        base.alias_method_chain :user, :autobuild
+        base.alias_method :user, :autobuild
         base.validate :user_must_be_valid
         base.extend ClassMethods
         base.define_user_accessors
