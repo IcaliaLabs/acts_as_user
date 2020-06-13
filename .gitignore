@@ -20,3 +20,4 @@ tmp
 .idea
 .rakeTasks
 .byebug_history
+.ruby-version
