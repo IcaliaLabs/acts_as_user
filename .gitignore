@@ -19,3 +19,4 @@ tmp
 *.lock
 .idea
 .rakeTasks
+.byebug_history
